@@ -16,3 +16,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('test', function(){
+    return "C'est un test!";
+});
+
+//Permet juste de faire une routes pour .../public/1 2 et 3
+Route::get('{n}', function($n) {
+    return 'Je suis la page ' . $n . ' !';
+})->where('n', '[1-3]');
+
+
