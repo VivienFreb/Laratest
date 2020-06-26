@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 
 Route::get('test', function(){
-    return "C'est un test!";
+    return view('test');
 });
 
 //Permet juste de faire une routes pour .../public/1 2 et 3
