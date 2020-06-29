@@ -26,8 +26,13 @@ Route::get('{n}', function($n) {
     return 'Je suis la page ' . $n . ' !';
 })->where('n', '[1-3]');
 
-//Route qui transfère le pramètre de l'url à la vue (via with)
+//Route qui transfère le paramètre de l'url à la vue (via with)
 Route::get('article/{n}', function($n){
     return view('article')->with('numero', $n);
 })->where('n', '[0-9]+');
 
+//Route qui fonctionne comme celle des articles mais pour des factures.
+//Contenu de la vue facture + ou - identique à article donc on fabrique un template
+Route::get('facture/{n}', function($n){
+    return view('facture', ['numero' => $n]);
+})->where('n', '[0-9]+');
