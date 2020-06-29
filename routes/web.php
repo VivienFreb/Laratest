@@ -43,3 +43,7 @@ Route::get('{n}', function($n) {
 Route::get('facture/{n}', function($n){
     return view('facture', ['numero' => $n]);
 })->where('n', '[0-9]+');
+
+//Inputs et formulaires
+Route::get('users', 'UsersController@getInfos');
+Route::post('users', 'UsersController@postInfos');
