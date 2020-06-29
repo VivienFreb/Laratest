@@ -8,4 +8,5 @@
 
 @section('content')
     <p>Facture n° {!! $numero !!}</p>
+    {!! route('home') !!}
 @endsection

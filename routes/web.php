@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ArticleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,9 +14,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Utilisation d'un controller pour afficher la vue. On nomme la route "home".
+// route('home') retournera l'url de la page d'accueil
+Route::get('/', [
+    'as' => 'home',
+    'uses' => 'WelcomeController@index'
+]);
+
+// Utilisation du Controller pour afficher la vue article
+Route::get('article/{n}', [
+    'as' => 'article',
+    'uses' => 'ArticleController@show'
+])->where('n', '[0-9]+');
+
 
 Route::get('test', function(){
     return view('test');
@@ -26,10 +37,6 @@ Route::get('{n}', function($n) {
     return 'Je suis la page ' . $n . ' !';
 })->where('n', '[1-3]');
 
-//Route qui transfère le paramètre de l'url à la vue (via with)
-Route::get('article/{n}', function($n){
-    return view('article')->with('numero', $n);
-})->where('n', '[0-9]+');
 
 //Route qui fonctionne comme celle des articles mais pour des factures.
 //Contenu de la vue facture + ou - identique à article donc on fabrique un template
