@@ -26,4 +26,8 @@ Route::get('{n}', function($n) {
     return 'Je suis la page ' . $n . ' !';
 })->where('n', '[1-3]');
 
+//Route qui transfère le pramètre de l'url à la vue (via with)
+Route::get('article/{n}', function($n){
+    return view('article')->with('numero', $n);
+})->where('n', '[0-9]+');
 

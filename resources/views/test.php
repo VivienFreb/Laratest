@@ -7,6 +7,5 @@
 <p>
     C'est magnifique, cette page s'est affichée grâce à une route !
 </p>
-</h1>
 </body>
 </html>
