@@ -4,12 +4,12 @@
     <meta charset="utf-8">
 </head>
 <body>
-<h2>Prise de contact sur mon beau site</h2>
-<p>Réception d'une prise de contact avec les éléments suivants :</p>
+<h2>Prise de contact</h2>
+<p>Réception d'une prise de contact :</p>
 <ul>
-    <li><strong>Nom</strong> : {{ $nom }}</li>
-    <li><strong>Email</strong> : {{ $email }}</li>
-    <li><strong>Message</strong> : {{ $texte }}</li>
+    <li><strong>Nom</strong> : {{ $name }}</li>
+    <li><strong>Email</strong> : {{ $mail }}</li>
+    <li><strong>Message</strong> : {{ $text }}</li>
 </ul>
 </body>
 </html>
