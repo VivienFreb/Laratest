@@ -3,8 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ImagesRequest;
-use Illuminate\Http\Request;
-use Illuminate\Support\Str;
+use App\Gestion\PhotoGestion;
 
 class PhotoController extends Controller
 {
@@ -14,25 +13,11 @@ class PhotoController extends Controller
         return view('photo');
     }
 
-    public function postForm(ImagesRequest $request)
+    public function postForm(ImagesRequest $request, PhotoGestion $gestion)
     {
-        $image = $request->file('image');
-
-        if($image->isValid())
-        {
-            $chemin = config('images.path'); //Return "uploads" de images.php dans config
-            
-            $extension = $image->getClientOriginalExtension();
-
-            do {
-                $nom = Str::random(10) . '.' . $extension;
-            } while(file_exists($chemin . '/' . $nom));
-
-            if($image->move($chemin, $nom)) {
-                return view('photo_confirm');
-            }
+        if($gestion->save($request->file('image'))){
+            return view('photo_confirm');
         }
-
         return redirect('photo')
             ->with('error','Sorry, your picture can\'t be uploaded!');
     }
