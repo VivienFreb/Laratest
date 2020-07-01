@@ -4,7 +4,7 @@ namespace App\Gestion;
 
 use Illuminate\Support\Str;
 
-class PhotoGestion
+class PhotoGestion implements PhotoGestionInterface
 {
 
     public function save($image)
