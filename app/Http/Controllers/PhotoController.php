@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\PhotoRepository;
 use App\Http\Requests\ImagesRequest;
-use App\Gestion\PhotoGestionInterface;
 
 class PhotoController extends Controller
 {
@@ -13,7 +13,7 @@ class PhotoController extends Controller
         return view('photo');
     }
 
-    public function postForm(ImagesRequest $request, PhotoGestionInterface $gestion)
+    public function postForm(ImagesRequest $request, PhotoRepository $gestion)
     {
         if($gestion->save($request->file('image'))){
             return view('photo_confirm');

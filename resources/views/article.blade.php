@@ -7,5 +7,5 @@
 @endsection
 
 @section('content')
-    <p>Facture n° {!! $numero !!}</p>
+    <p>Article n° {!! $numero !!}</p>
 @endsection
